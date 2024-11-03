@@ -25,6 +25,7 @@ app.use(cookieParser())
 const port = process.env.PORT || 5000;
 
 
+app.get("/", (req, res) => res.send("server is ready"));
 
 
 //Backend Routes
