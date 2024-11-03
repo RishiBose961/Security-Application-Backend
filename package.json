@@ -1,7 +1,7 @@
 {
   "name": "sparx",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "server": "nodemon server/server.js",
