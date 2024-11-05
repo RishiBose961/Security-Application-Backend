@@ -9,7 +9,9 @@ const QRScanner = () => {
     if (data) {
       try {
         const response = await axios.post('/api/auth/generate-login', { sessionToken: data });
-        setAuthToken(response.data.authToken);
+        console.log(response.data);
+        
+        setAuthToken(response.data);
         alert("Login Successful!");
       } catch (error) {
         console.error('QR code login failed:', error);
