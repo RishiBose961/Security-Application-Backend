@@ -2,7 +2,7 @@
 import express from "express";
 import "dotenv/config.js";
 import cookieParser from "cookie-parser";
-
+import path from "path";
 //Import URL
 import connectDB from "./db/config.js";
 import { errorHandler, notFound } from "./utils/errorMiddleware.js";
@@ -25,7 +25,20 @@ app.use(cookieParser())
 const port = process.env.PORT || 5000;
 
 
-app.get("/", (req, res) => res.send("server is ready"));
+const __dirname = path.resolve();
+
+app.use(express.static(path.join(__dirname, "./client/dist")));
+
+
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "./client/dist/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
+
 
 
 //Backend Routes

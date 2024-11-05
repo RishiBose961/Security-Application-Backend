@@ -6,6 +6,7 @@ import {
     generate2faSecret,
     generateQrLogin,
     loginUser,
+    logoutUser,
     qrLogin,
     registerUser,
   } from "../controller/user.controller.js";
@@ -15,7 +16,8 @@ import {
   router.post("/login", loginUser);
   router.post("/generate-2fa",generate2faSecret)
   router.post("/enable-2fa",enabled2fa)
-  router.post("/generate-qr/:userId",generateQrLogin)
+  router.get("/generate-qr/:userId",generateQrLogin)
   router.post("/generate-login",qrLogin)
+  router.post("/logout", logoutUser);
 
   export default router;
