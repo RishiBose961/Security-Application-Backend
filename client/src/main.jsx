@@ -22,12 +22,13 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
        <Route path="/scan-qr" element={<QRScanner />} />
+       <Route path="/generate-qr" element={<QRCodeLogin />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       {/* Protected Route */}
       <Route path="" element={<PrivateRoute />}>
       <Route index={true} path="/" element={<Home />} />
-      <Route path="/generate-qr" element={<QRCodeLogin />} />
+     
    
         {/* <Route path="/profile" element={<ProfileScreem />} /> */}
       </Route>

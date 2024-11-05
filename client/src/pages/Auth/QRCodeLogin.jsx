@@ -13,14 +13,14 @@ const QRCodeLogin = () => {
   useEffect(() => {
     const fetchQRCode = async () => {
       try {
-        const response = await axios.get(`/api/auth/generate-qr/${userInfo?._id}`);
+        const response = await axios.post(`/api/auth/generate-qr/${userInfo?._id}`);
         setQrCode(response.data.qrCode);
       } catch (error) {
         console.error('Error fetching QR code:', error);
       }
     };
     fetchQRCode();
-  }, []);
+  }, [userInfo?._id]);
 
 //   const handleQRCodeScan = async (sessionToken) => {
 //     try {
@@ -36,7 +36,7 @@ const QRCodeLogin = () => {
 //     }
 //   };
 
-//   console.log(authToken);
+  console.log(authToken);
   
 
   return (
